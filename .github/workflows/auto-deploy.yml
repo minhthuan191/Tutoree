@@ -2,7 +2,7 @@ name: auto-build-deploy
 on:
     push:
         branches:
-            - "deploy"
+            - "main"
 jobs:
     build-check:
         runs-on: ubuntu-latest
@@ -38,7 +38,7 @@ jobs:
                   file: ./Dockerfile
                   builder: ${{steps.buildx.outputs.name}}
                   push: true
-                  tags: heaty566/prn-231-be:latest
+                  tags: heaty566/prn-thuan-be:latest
             - name: Verify
               run: |
                   echo ${{steps.docker_build_server.outputs.digest}}
