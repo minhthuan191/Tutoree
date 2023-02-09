@@ -31,6 +31,7 @@ namespace Tutoree
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDataProtection();
             services.AddScoped<DBContext, DBContext>();
             services.AddScoped<IConfig, Config>();
 
