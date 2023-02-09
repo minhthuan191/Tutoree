@@ -56,9 +56,5 @@ namespace Tutoree.Service
             return this.TutorRepository.UpdateTutorInfoHandler(Tutor);
         }
 
-        public PersonalInfo GetTutorInfo(string id)
-        {
-            return this.TutorRepository.GetTutorPersonalInfo(id);
-        }
     }
 }

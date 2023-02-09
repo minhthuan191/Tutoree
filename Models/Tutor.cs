@@ -13,15 +13,26 @@ namespace Tutoree.Models
 
         [Required]
         [StringLength(50)]
+        public string Email { set; get; }
+
+        [Required]
+        [StringLength(50)]
+        public string Password { set; get; }
+
+        [StringLength(50)]
+        public string Name { set; get; }
+
+        [StringLength(10)]
+        public string Phone { set; get; } 
+
+        [Required]
+        [StringLength(50)]
         public string Status { set; get; }
 
         [Required]
         [StringLength(50)]
         public string TeachingMethod { set; get; }
 
-        [Required]
-        [StringLength(50)]
-        public string Shedule { set; get; }
 
         [Required]
         [StringLength(50)]
@@ -31,10 +42,13 @@ namespace Tutoree.Models
         [StringLength(50)]
         public string Description { set; get; }
 
-        [StringLength(50)]
-        [ForeignKey("tblPersonalInfo")]
 
-        public string InfoId { set; get; }
-        public virtual PersonalInfo TutorInfo { set; get; }
+        [Required]
+        [StringLength(50)]
+        [ForeignKey("tblTeachingSchedule")]
+        
+        public string TeachingScheduleId { set; get; }
+
+        public virtual TeachingSchedule TeachingSchedule { get; set; }
     }
 }

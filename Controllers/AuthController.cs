@@ -43,8 +43,8 @@ namespace Tutoree.Controllers
                 res.setErrorMessage("email or password is wrong");
                 return new BadRequestObjectResult(res.getResponse());
             }
-            var userInfo = this.StudentService.GetStudentInfo(user.InfoId);
-            if (!this.AuthService.ComparePassword(body.Password, userInfo.Password))
+ 
+            if (!this.AuthService.ComparePassword(body.Password, user.Password))
             {
                 res.setErrorMessage("email or password is wrong");
                 return new BadRequestObjectResult(res.getResponse());
@@ -72,7 +72,7 @@ namespace Tutoree.Controllers
             return new ObjectResult(res.getResponse());
         }
 
-        [HttpPost("login/Tutor")]
+        [HttpPost("login/tutor")]
         public IActionResult HandleLoginForTutor([FromBody] LoginDTO body)
         {
             var res = new ServerApiResponse<string>();
@@ -89,8 +89,8 @@ namespace Tutoree.Controllers
                 res.setErrorMessage("Phone or password is wrong");
                 return new BadRequestObjectResult(res.getResponse());
             }
-            var tutorInfo = this.TutorService.GetTutorInfo(Tutor.InfoId);
-            if (!this.AuthService.ComparePassword(body.Password, tutorInfo.Password))
+         
+            if (!this.AuthService.ComparePassword(body.Password, Tutor.Password))
             {
                 res.setErrorMessage("Phone or password is wrong");
                 return new BadRequestObjectResult(res.getResponse());
@@ -138,17 +138,14 @@ namespace Tutoree.Controllers
 
 
             var student = new Student(); 
-            var studentInfo = new PersonalInfo();
-
             student.StudentId = Guid.NewGuid().ToString();
-
+            student.Email = body.Email;
+            student.Password = body.Password;
             student.Semester = body.Semester;
             student.Year = body.Year;
             student.MajorId = body.Major;
             student.LocationId = body.Location;
-            student.StudentInfo.InfoId = Guid.NewGuid().ToString();
-            student.StudentInfo.Email = body.Email;
-            student.StudentInfo.Password = body.Password;
+           
 
             this.AuthService.RegisterStudentHandler(student);
 

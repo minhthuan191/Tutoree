@@ -8,7 +8,6 @@ namespace Tutoree.DAO.Interface
         public bool UpdatePasswordHandler(Tutor Tutor);
         public bool UpdateTutorInfoHandler(Tutor Tutor);
         public Tutor GetTutorById(string id);
-        public PersonalInfo GetTutorInfo(string id);
         public Tutor GetTutorByEmail(string email);
         public bool RegisterHandler(Tutor Tutor);
         public List<Tutor> GetAllTutors();

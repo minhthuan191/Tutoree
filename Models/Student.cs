@@ -11,6 +11,21 @@ namespace Tutoree.Models
         [StringLength(50)]
         public string StudentId { set; get; }
 
+        [Required]
+        [StringLength(50)]
+        public string Email { set; get; }
+
+        [Required]
+        [StringLength(50)]
+        public string Password { set; get; }
+
+        [StringLength(50)]
+        public string Name { set; get; }
+
+        public int Age { set; get; }
+
+        [StringLength(10)]
+        public string Phone { set; get; }
 
         [Required]
         public int Year { set; get; }
@@ -32,13 +47,6 @@ namespace Tutoree.Models
 
         public string MajorId { set; get; }
         public virtual Major Major { set; get; }
-        
-
-        [StringLength(50)]
-        [ForeignKey("tblPersonalInfo")]
-
-        public string InfoId { set; get; }
-        public virtual PersonalInfo StudentInfo { set; get; }
 
     }
 }

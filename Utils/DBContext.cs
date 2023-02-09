@@ -20,8 +20,8 @@ namespace Tutoree.Utils
         public DbSet<Subject> Subject { set; get; }
         public DbSet<Major> Major { set; get; }
         public DbSet<Location> Location { set; get; }
-        public DbSet<PersonalInfo> PersonalInfo { set; get; }
-        public DbSet<Teaching> Teaching { set; get; }
+        public DbSet<TeachingSubject> TeachingSubject { set; get; }
+        public DbSet<TeachingSchedule> TeachingSchedule { set; get; }
 
 
 

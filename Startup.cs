@@ -47,7 +47,7 @@ namespace Tutoree
             services.AddScoped<UserFilter>();
 
             services.AddSession();
-            services.AddControllers();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,7 +59,7 @@ namespace Tutoree
             }
             else
             {
-                app.UseExceptionHandler("/Error");
+                app.UseExceptionHandler("Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }

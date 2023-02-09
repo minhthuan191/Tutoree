@@ -14,22 +14,14 @@ namespace Tutoree.DAO
             this.DBContext = dBContext;
         }
 
-        public PersonalInfo GetStudentPersonalInfo(string InfoId)
-        {
-            PersonalInfo personalInfo = this.DBContext.PersonalInfo.FirstOrDefault(item => item.InfoId ==  InfoId);
-            return personalInfo;
-        }
-
         public Student GetStudentByStudentname(string Studentname)
         {
-            PersonalInfo personalInfo  = this.DBContext.PersonalInfo.FirstOrDefault(item => item.Name == Studentname);
-            Student student = this.DBContext.Student.FirstOrDefault(item => item.InfoId == personalInfo.InfoId);
+            Student student = this.DBContext.Student.FirstOrDefault(item => item.Name == Studentname);
             return student;
         }
         public Student GetStudentByEmail(string email)
         {
-            PersonalInfo personalInfo  = this.DBContext.PersonalInfo.FirstOrDefault(item => item.Email == email);
-            Student student = this.DBContext.Student.FirstOrDefault(item => item.InfoId == personalInfo.InfoId);
+            Student student = this.DBContext.Student.FirstOrDefault(item => item.Email == email);
             return student;
         }
 
