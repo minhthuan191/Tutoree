@@ -3,7 +3,43 @@
     this.ViewData["Title"] = Routers.Login.Title;
 }
 
-<div class="min-h-full flex ">
+    <img class="bg" src="/images/login/Background.png"/>
+    <img class="bg-decor" src="/images/login/BackgroundDecorator.png"/>
+    <img class="bg-decor the-owl" src="/images/login/BackgroundDecorator2.png"
+        style="position: fixed;
+        width: 60vw;
+        height: 80vh;
+        top: 7vh;
+        left: -3vw;
+        object-fit: contain;"/>
+    <div class="panel-login position-fixed shadow-lg rounded-panel p-4"
+        style="
+                width: min(600px, 60vh);
+                background-color: var(--color-0);
+                right: 10vw;
+                top: calc((100vh - min(250px, 25vh))/2 - 6vh);">
+
+            <h3 class="panel-title w-full text-white text-center">
+                Đăng nhập
+            </h3>
+
+            <div class="google-button text-center bg-white rounded-button p-2" style="margin-top: min(75px, 6vh);">
+                <img class="ic" 
+                    style="width: 2.5rem;"
+                    src="/images/login/GoogleIcon.png" />
+                <p class="d-inline" style="font-weight: 500;">Đăng nhập với </p>
+                <p class="d-inline" style="font-weight: 700; color: #F66A04">FPT Email </p>
+            </div>
+
+    </div>
+
+@section Scripts {
+
+<script src="/js/login.js"></script>
+
+}
+
+<!-- <div class="min-h-full flex ">
     <div class="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
         <div class="mx-auto w-full max-w-sm lg:w-96">
             <div>
@@ -64,11 +100,4 @@
     <img class="absolute inset-0 h-screen w-full object-cover"
         src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
         alt="">
-</div>
-</div>
-@section Scripts {
-
-<script src="/js/login.js"></script>
-
-
-}
+</div> -->

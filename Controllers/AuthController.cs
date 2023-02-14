@@ -13,7 +13,7 @@ namespace Tutoree.Controllers
 {
     [Route("/api/auth")]
     [ApiController]
-    public class AuthApiController : Controller
+    public partial class AuthApiController : Controller
     {
         private readonly IAuthService AuthService;
         private readonly IStudentService StudentService;
@@ -152,6 +152,7 @@ namespace Tutoree.Controllers
             res.setMessage("register success");
             return new ObjectResult(res.getResponse());
         }
+
         [HttpGet("logout")]
         public IActionResult Logout()
         {
@@ -167,5 +168,17 @@ namespace Tutoree.Controllers
             res.setMessage("Logout success");
             return new ObjectResult(res.getResponse());
         }
+    }
+
+    [Route("auth")]
+    public partial class AuthController : Controller
+    {
+
+        [HttpGet("register")]
+        public IActionResult Index()
+        {
+            return View(Routers.Register.Page);
+        }
+
     }
 }
