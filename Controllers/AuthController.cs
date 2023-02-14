@@ -1,162 +1,73 @@
-﻿using FluentValidation.Results;
+﻿
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using Tutoree.Controllers.DTO;
-using Tutoree.DAO.Interface;
 using Tutoree.Models;
 using Tutoree.Service.Interface;
 using Tutoree.Utils.Common;
-using static Tutoree.Controllers.DTO.RegisterDTO;
 
 namespace Tutoree.Controllers
 {
     [Route("/api/auth")]
     [ApiController]
-    public partial class AuthApiController : Controller
+    public class AuthController : Controller
     {
         private readonly IAuthService AuthService;
-        private readonly IStudentService StudentService;
-        private readonly ITutorService TutorService;
 
-        public AuthApiController(IAuthService authService, IStudentService StudentService, ITutorService TutorService)
+        public AuthController(IAuthService authService)
         {
             this.AuthService = authService;
-            this.StudentService = StudentService;
-            this.TutorService = TutorService;
         }
 
-        [HttpPost("login")]
-        public IActionResult HandleLogin([FromBody] LoginDTO body)
+        [HttpGet("login")]
+        public IActionResult Login()
         {
-            var res = new ServerApiResponse<string>();
-            ValidationResult result = new LoginDTOValidator().Validate(body);
-            if (!result.IsValid)
+            var user = (Student)this.ViewData["student"];
+            if (user != null)
             {
-                res.mapDetails(result);
-                return new BadRequestObjectResult(res.getResponse());
+                return Redirect(Routers.Home.Link);
             }
-
-            var user = this.StudentService.GetStudentByEmail(body.Email);
-            if (user == null)
-            {
-                res.setErrorMessage("email or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
- 
-            if (!this.AuthService.ComparePassword(body.Password, user.Password))
-            {
-                res.setErrorMessage("email or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
-
-            var token = this.AuthService.LoginHandler(user.StudentId);
-
-            if (token == null)
-            {
-                res.setErrorMessage("email or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
-
-            this.HttpContext.Response.Cookies.Append("auth-token", token, new CookieOptions()
-            {
-                Expires = DateTime.Now.AddDays(30),
-                SameSite = SameSiteMode.None,
-                Secure = true
-
-            });
-            Console.WriteLine("--------------");
-            res.data = token;
-            res.setMessage("login success");
-
-            return new ObjectResult(res.getResponse());
+            return View(Routers.Login.Page);
         }
 
-        [HttpPost("login/tutor")]
-        public IActionResult HandleLoginForTutor([FromBody] LoginDTO body)
+        [HttpGet("login/tutor")]
+        public IActionResult LoginTutor()
         {
-            var res = new ServerApiResponse<string>();
-            ValidationResult result = new LoginDTOValidator().Validate(body);
-            if (!result.IsValid)
+            var user = (Tutor)this.ViewData["tutor"];
+            if (user != null)
             {
-                res.mapDetails(result);
-                return new BadRequestObjectResult(res.getResponse());
+                return Redirect(Routers.Home.Link);
             }
-
-            var Tutor = this.TutorService.GetTutorByEmail(body.Email);
-            if (Tutor == null)
-            {
-                res.setErrorMessage("Phone or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
-         
-            if (!this.AuthService.ComparePassword(body.Password, Tutor.Password))
-            {
-                res.setErrorMessage("Phone or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
-
-            var token = this.AuthService.LoginHandler(Tutor.TutorId);
-
-            if (token == null)
-            {
-                res.setErrorMessage("Phone or password is wrong");
-                return new BadRequestObjectResult(res.getResponse());
-            }
-
-            this.HttpContext.Response.Cookies.Append("auth-token", token, new CookieOptions()
-            {
-                Expires = DateTime.Now.AddDays(30),
-                SameSite = SameSiteMode.None,
-                Secure = true
-
-            });
-            res.data = token;
-            res.setMessage("login success");
-
-            return new ObjectResult(res.getResponse());
+            return View(Routers.Login.Page);
         }
 
-        [HttpPost("register")]
-        public IActionResult HandleRegister([FromBody] RegisterDTO body)
+
+        [HttpGet("register")]
+        public IActionResult Register()
         {
-            var res = new ServerApiResponse<string>();
-
-            ValidationResult result = new RegisterDTOValidator().Validate(body);
-            if (!result.IsValid)
+            var user = (Student)this.ViewData["student"];
+            if (user != null)
             {
-                res.mapDetails(result);
-                return new BadRequestObjectResult(res.getResponse());
+                return Redirect(Routers.Home.Link);
             }
+            return View(Routers.Register.Page);
+        }
 
-            var isExistUser = this.StudentService.GetStudentByEmail(body.Email);
-            if (isExistUser != null)
+        [HttpGet("register/tutor")]
+        public IActionResult RegisterShop()
+        {
+            var user = (Tutor)this.ViewData["tutor"];
+            if (user != null)
             {
-                res.setErrorMessage("is already exist", "Email");
-                return new BadRequestObjectResult(res.getResponse());
+                return Redirect(Routers.Home.Link);
             }
-
-
-            var student = new Student(); 
-            student.StudentId = Guid.NewGuid().ToString();
-            student.Email = body.Email;
-            student.Password = body.Password;
-            student.Semester = body.Semester;
-            student.Year = body.Year;
-            student.MajorId = body.Major;
-            student.LocationId = body.Location;
-           
-
-            this.AuthService.RegisterStudentHandler(student);
-
-            res.setMessage("register success");
-            return new ObjectResult(res.getResponse());
+            return View(Routers.Register.Page);
         }
 
         [HttpGet("logout")]
         public IActionResult Logout()
         {
-            var res = new ServerApiResponse<string>();
+
             this.HttpContext.Response.Cookies.Append("auth-token", "", new CookieOptions()
             {
                 Expires = DateTime.Now.AddDays(-1),
@@ -165,9 +76,11 @@ namespace Tutoree.Controllers
 
             });
             this.HttpContext.Session.Clear();
-            res.setMessage("Logout success");
-            return new ObjectResult(res.getResponse());
+            return Redirect(Routers.Login.Link + "?message=logout success");
         }
+
+
+
     }
 
     [Route("auth")]
