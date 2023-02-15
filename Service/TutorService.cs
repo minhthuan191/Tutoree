@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Tutoree.DAO;
-using Tutoree.DAO.Interface;
+using Tutoree.Service.Interface;
 using Tutoree.Models;
+using Tutoree.DAO.Interface;
 
 namespace Tutoree.Service
 {

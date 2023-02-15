@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Tutoree.Models;
 
-namespace Tutoree.DAO.Interface
+namespace Tutoree.Service.Interface
 {
     public interface ITutorService
     {

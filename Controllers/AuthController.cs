@@ -8,8 +8,7 @@ using Tutoree.Utils.Common;
 
 namespace Tutoree.Controllers
 {
-    [Route("/api/auth")]
-    [ApiController]
+    [Route("/auth")]
     public class AuthController : Controller
     {
         private readonly IAuthService AuthService;
@@ -80,18 +79,6 @@ namespace Tutoree.Controllers
         }
 
 
-
-    }
-
-    [Route("auth")]
-    public partial class AuthController : Controller
-    {
-
-        [HttpGet("register")]
-        public IActionResult Index()
-        {
-            return View(Routers.Register.Page);
-        }
 
     }
 }

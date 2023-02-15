@@ -182,7 +182,7 @@ namespace Tutoree.Controllers
             tutor.TeachingMethod = body.TeachingMethod;
             tutor.Description = body.Description;
             tutor.Education = body.Education;
-            tutor.Status = TutorStatus.ACTIVE;
+            tutor.Status = TutorStatus.INACTIVE;
 
            
 

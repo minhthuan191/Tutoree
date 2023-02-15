@@ -12,7 +12,7 @@ namespace Tutoree.Controllers.DTO
         public string TeachingMethod { set; get; }
         public string Education { set; get; }
         public string Description { set; get; }
-
+    }
         public class RegisterTutorDTOValidator : AbstractValidator<RegisterTutorDTO> {
             public RegisterTutorDTOValidator()
             {
@@ -25,5 +25,5 @@ namespace Tutoree.Controllers.DTO
                 RuleFor(x => x.Description).NotEmpty();
             }
         }
-    }
+    
 }
