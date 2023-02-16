@@ -18,8 +18,9 @@ namespace Tutoree.Controllers
         public IActionResult Index()
         {
             
-            return View(Routers.Login.Page);
+            return View(Routers.Home.Page);
         }
+
 
     }
 }
