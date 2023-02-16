@@ -1,0 +1,64 @@
+@import "divider.css";
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.introduction-section {
+  position: relative;
+}
+
+.introduction-home-decor {
+  position: absolute;
+  top: 20%;
+  right: 0;
+  width: 100%;
+}
+
+.introduction-home-decor img {
+  width: 100%;
+}
+
+.introduction-img img {
+  display: block;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  box-shadow: 0px 4px 100px 0px #0000004d;
+}
+
+.introduction-row {
+  width: 100%;
+  margin-bottom: 5vh;
+}
+
+.introduction-row:first-child {
+  margin-top: 2vh;
+}
+
+.paragraph-title {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+.paragraph {
+  font-size: 1em;
+  font-weight: 400;
+}
+
+@media (max-width: 767px) {
+  .introduction-home-decor {
+    top: 40%;
+  }
+  .introduction-row {
+    margin-bottom: 0px;
+  }
+}
