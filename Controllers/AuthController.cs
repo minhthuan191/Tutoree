@@ -82,16 +82,4 @@ namespace Tutoree.Controllers
 
 
     }
-
-    [Route("auth")]
-    public partial class AuthController : Controller
-    {
-
-        [HttpGet("register")]
-        public IActionResult Index()
-        {
-            return View(Routers.Register.Page);
-        }
-
-    }
 }
