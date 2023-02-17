@@ -1,0 +1,52 @@
+.divider {
+  margin: 40px 0 40px 0;
+  position: relative;
+  align-items: center;
+  display: flex;
+}
+
+.seperate-line {
+  width: 100%;
+  height: 1px;
+  background-color: #bbdcb3;
+  margin: 0 70px 0 70px;
+}
+
+.oval-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.oval-logo img {
+  height: 70px;
+}
+
+
+@media (min-width: 768px) {
+  .divider {
+    margin: 50px 0 50px 0;
+  }
+  .oval-logo img {
+    height: 80px;
+  }
+}
+
+@media (min-width: 992px) {
+  .divider {
+    margin: 60px 0 60px 0;
+  }
+  .oval-logo img {
+    height: 90px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .divider {
+    margin: 80px 0 80px 0;
+  }
+  .oval-logo img {
+    height: 100px;
+  }
+}
