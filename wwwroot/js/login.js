@@ -14,7 +14,7 @@ loginForm?.addEventListener("submit", function (event) {
                 };
 
                 axios.post('/api/auth/login', input)
-                .then(() => window.location.assign('/gg'))
+                .then(() => window.location.assign('/'))
                 .catch(function (error) {
                         console.log(error);
                 });
