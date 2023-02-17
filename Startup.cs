@@ -37,12 +37,16 @@ namespace Tutoree
 
             services.AddScoped<IJwtService, JwtService>();
             services.AddScoped<IAuthService, AuthService>();
-
+            services.AddScoped<ILocationService, LocationService>();
+            services.AddScoped<IMajorService, MajorService>();
             services.AddScoped<IStudentService, StudentService>();
             services.AddScoped<ITutorService, TutorService>();
 
+
             services.AddScoped<IStudentRepository, StudentRepository>();
             services.AddScoped<ITutorRepository, TutorRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<IMajorRepository, MajorRepository>();
 
             services.AddScoped<AuthGuard>();
             services.AddScoped<UserFilter>();
