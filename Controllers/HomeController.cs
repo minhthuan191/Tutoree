@@ -7,7 +7,6 @@ using Tutoree.Utils.Common;
 namespace Tutoree.Controllers
 {
     [Route("")]
-
     public class HomeController : Controller
     {
 
@@ -61,9 +60,10 @@ namespace Tutoree.Controllers
             return View(Routers.Login.Page);
         }
 
-        
-
-        
-
+        [HttpGet("/home")]
+        public IActionResult HomePage()
+        {
+            return View(Routers.Home.Page);
+        }
     }
 }
