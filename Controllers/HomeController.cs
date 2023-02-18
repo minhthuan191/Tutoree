@@ -67,5 +67,11 @@ namespace Tutoree.Controllers
         {
             return View(Routers.Home.Page);
         }
+
+        [HttpGet("/tutor")]
+        public IActionResult TutorDetailsPage()
+        {
+            return View(Routers.TutorDetails.Page);
+        }
     }
 }

@@ -24,5 +24,6 @@
         public static readonly RouterItem Login = new RouterItem() { Page = "/Views/Containers/Auth/Login.cshtml", Title = "Login", Link = "/auth/login" };
         public static readonly RouterItem Home = new RouterItem() { Page = "/Views/Containers/Home.cshtml", Title = "Home", Link = "/" };
         public static readonly RouterItem SearchTutor = new RouterItem() { Page = "/Views/Containers/Students/SearchTutor.cshtml", Title = "Search Tutor", Link = "/searchtutor" };
+        public static readonly RouterItem TutorDetails = new RouterItem() { Page = "/Views/Containers/Students/TutorDetails.cshtml", Title = "Tutor Details", Link = "/tutor" };
     }
 }
