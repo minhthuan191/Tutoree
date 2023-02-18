@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Tutoree.Auth;
 using Tutoree.Models;
 using Tutoree.Service.Interface;
 using Tutoree.Utils.Common;
@@ -7,6 +8,7 @@ using Tutoree.Utils.Common;
 namespace Tutoree.Controllers
 {
     [Route("")]
+    [ServiceFilter(typeof(AuthGuard))]
     public class HomeController : Controller
     {
 

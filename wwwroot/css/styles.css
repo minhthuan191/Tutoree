@@ -93,7 +93,7 @@ p {
   top: 0; 
   left: 0!important;
   right: 0!important;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
 }
 
@@ -153,7 +153,6 @@ p {
   box-shadow: var(--shadow-md);
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
   border-radius: 1rem;
 }
 
@@ -161,6 +160,7 @@ p {
   display: flex; 
   flex-direction: column;
   margin-left: 1.5rem; 
+  min-width: fit-content;
 }
 
 .highlight-lg {
@@ -218,4 +218,14 @@ p {
 .pricing .item .content {
   font-weight: 500;
   color: black;
+}
+
+.tutor-teach .content {
+  font-weight: 500;
+  color: black;
+}
+
+.tutor-intro {
+  display: flex;
+  flex-flow: column wrap;
 }
