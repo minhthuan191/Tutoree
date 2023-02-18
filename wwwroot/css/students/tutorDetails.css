@@ -1,11 +1,11 @@
 .tutor-details {
-  margin-top: min(12vh, 200px);
+  margin-top: min(13vh, 200px);
 }
 .tutor-info-box {
   width: 100%;
   background-color: #fff;
   height: fit-content;
-  box-shadow: 0px 5px 11px 3px #00000026;
+  box-shadow: var(--shadow-md);
   border-radius: 16px;
 
   display: flex;

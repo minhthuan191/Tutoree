@@ -159,7 +159,6 @@ p {
 .tutor-teach {
   display: flex; 
   flex-direction: column;
-  margin-left: 1.5rem; 
   min-width: fit-content;
 }
 
