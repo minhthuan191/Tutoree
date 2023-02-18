@@ -32,4 +32,10 @@
     <Folder Include="Views\Containers\Tutors\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Views\Components\Common\Pagination.cshtml" />
+    <None Include="Views\Components\Navbar\NavbarSide.cshtml" />
+    <None Include="Views\Components\Table\Status.cshtml" />
+  </ItemGroup>
+
 </Project>

@@ -1,113 +1,57 @@
+const bubbleInformation = [
+  {
+    header: "TRẺ TRUNG NĂNG ĐỘNG",
+    content:
+      "Các bạn gia sư là sinh viên đến từ ngôi trường đại học FPT của chúng ta",
+  },
+  {
+    header: "THẤU HIỂU",
+    content:
+      "đã và đang theo học tại trường, các gia sư có thể thấu hiểu được các vấn đề của sinh viên",
+  },
+  {
+    header: "ỨNG DỤNG HIỆU QUẢ ",
+    content:
+      "với kinh nghiệm theo học tại trường, đưa ra các bài giảng và lời khuyên học tập hiệu quả",
+  },
+  {
+    header: "Đúng người, đúng môn",
+    content:
+      "tập trung dạy các môn đang nằm trong giáo trình đại học FPT đang hiện có ",
+  },
+  {
+    header: "TIN CẬY và an toàn",
+    content:
+      "Là các sinh viên cùng trường, dễ dàng kiểm duyệt và giải quyết các vấn đề phát sinh",
+  },
+  {
+    header: "Đúng người, đúng môn",
+    content:
+      "tập trung dạy các môn đang nằm trong giáo trình đại học fpt hiện có",
+  },
+];
 
+function transformBubble(index, header, content, defaultNode) {
+  defaultNode.querySelector(".index-number").innerHTML = index;
+  defaultNode.querySelector(".bubble-header").innerHTML = header;
+  defaultNode.querySelector(".bubble-content").innerHTML = content;
+  defaultNode.classList.add(`bubble-information-${index}`);
+  defaultNode.classList.remove(`hidden`);
+}
 
-const store = document.getElementById("store");
-const btnList = store?.querySelectorAll('button[type="button"]');
-let total = 0;
+function appendBubbleNode() {
+  let bubbleDefault = document.getElementById("default-bubble");
 
-const update = (data) => {
-        console.log(store);
-        console.log(btnList);
-        const wrapper = document.createElement("div");
-        total = 0;
-        data.forEach((item) => {
-                const element = createEntity(item.name, item.quantity, item.retailPrice, item.productId);
-                wrapper.appendChild(element);
-        });
+  bubbleInformation.forEach((bubble, index) => {
+    let newBubble = bubbleDefault.cloneNode(true);
+    transformBubble(
+      String(index + 1),
+      bubble.header,
+      bubble.content,
+      newBubble
+    );
+    document.getElementById("suitable-tutors").appendChild(newBubble);
+  });
+}
 
-        const cart = document.getElementById("cart");
-        if (cart) {
-                const totalElement = createEntity("Total", 1, total, "total");
-                cart.innerHTML = "";
-                cart.appendChild(wrapper);
-
-                cart.appendChild(totalElement);
-        }
-};
-
-const createEntity = (name, quantity, price, id) => {
-        const plus = document.createElement("div");
-        const minus = document.createElement("div");
-        plus.classList.add("p-1", "font-semibold");
-        minus.classList.add("p-1", "font-semibold");
-        plus.innerHTML = "+";
-        minus.innerHTML = "-";
-
-        plus.addEventListener("click", function () {
-                http.post("/api/cart/add", { productId: id, quantity: 1 }).then((res) => {
-                        update(res.data.data);
-                });
-        });
-
-        minus.addEventListener("click", function () {
-                http.post("/api/cart/add", { productId: id, quantity: -1 }).then((res) => {
-                        update(res.data.data);
-                });
-        });
-        total += quantity * price;
-        const wrapper = document.createElement("div");
-        wrapper.classList.add(
-                "flex",
-                "items-center",
-                "block",
-                "p-3",
-                "transition",
-                "duration-300",
-                "ease-in-out",
-                "bg-white",
-                "cursor-pointer",
-                "dark:bg-dark-3",
-                "hover:bg-gray-200",
-                "dark:hover:bg-dark-1"
-        );
-        const top = document.createElement("div");
-        top.classList.add(`w-3/6`, "mr-1", "truncate", "pos__ticket__item-name");
-        top.innerHTML = name;
-        const bottom = document.createElement("div");
-        bottom.classList.add("w-1/6", "ml-auto", "font-medium");
-        bottom.innerHTML = `$${price * quantity}`;
-        const label = document.createElement("div");
-        const buttonWrapper = document.createElement("div");
-        buttonWrapper.classList.add("flex", "items-center", "w-1/6", "space-x-2", "add-cart");
-        if (id !== "total") {
-                buttonWrapper.appendChild(plus);
-                buttonWrapper.appendChild(label);
-                buttonWrapper.appendChild(minus);
-        }
-
-        label.classList.add("text-gray-600");
-        label.innerHTML = `${quantity}`;
-
-        wrapper.append(top);
-        wrapper.append(buttonWrapper);
-        wrapper.append(bottom);
-        return wrapper;
-};
-http.get("/api/cart").then((res) => {
-        update(res.data.data);
-});
-
-btnList?.forEach((btn) => {
-        btn.addEventListener("click", function (event) {
-                const id = btn.getAttribute("data-id") || "";
-                http.post("/api/cart/add", { productId: id, quantity: 1 }).then((res) => {
-                        update(res.data.data);
-                });
-        });
-});
-
-let payment = 0;
-
-const paymentList = document.querySelectorAll('input[name="payment"]');
-paymentList.forEach((radio) => {
-        radio.addEventListener("click", function () {
-                payment = Number(radio.value);
-        });
-});
-
-const order = document.getElementById("order");
-order?.addEventListener("submit", function (event) {
-        event.preventDefault();
-        http.post("/api/order", { paymentMethod: payment }).then(() => {
-                window.location.reload();
-        });
-});
+appendBubbleNode();
