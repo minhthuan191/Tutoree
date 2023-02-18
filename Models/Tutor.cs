@@ -37,7 +37,7 @@ namespace Tutoree.Models
         [Required]
         [StringLength(50)]
         public string TeachingMethod { set; get; }
-
+        
 
         [Required]
         [StringLength(50)]
@@ -50,9 +50,14 @@ namespace Tutoree.Models
 
         [StringLength(50)]
         [ForeignKey("tblTeachingSchedule")]
-        
         public string TeachingScheduleId { set; get; }
-
         public virtual TeachingSchedule TeachingSchedule { get; set; }
+
+        [StringLength(50)]
+        [ForeignKey("tblLocation")]
+        public string LocationId { set; get; }
+        public virtual Location Location { set; get; }
+
+
     }
 }

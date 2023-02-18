@@ -12,5 +12,6 @@ namespace Tutoree.Service.Interface
         public bool RegisterHandler(Tutor Tutor);
         public List<Tutor> GetAllTutors();
         public bool ManageAccountHandler(Tutor Tutor);
+        public (List<Tutor>, int) GetAllTutors(int pageIndex, int pageSize, string subjectId, string locationId);
     }
 }
