@@ -2,8 +2,11 @@
     --color-0: #26C975;
     --button-primary: #20A100;
     --button-secondary: black;
-
     --button-contrast: #FF9029;
 
     --border-sm: 0.5rem;
+    --border-md: 1rem;
+    --border-lg: 1.5rem;
+
+    --shadow-md: 0 3px 5px rgba(0, 0, 0, 0.1)
 }
