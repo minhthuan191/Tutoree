@@ -1,6 +1,6 @@
 @import "home/home.css";
 @import "login/login.css";
-@import "students/students.css";
+@import "profile/tutor.css";
 
 *,
 ::before,
@@ -39,7 +39,7 @@ p {
 }
 
 .bg {
-	position: fixed;
+  position: fixed;
   width: 100vw;
   height: 100vh;
   top: 0;
@@ -68,17 +68,17 @@ p {
 }
 
 .center {
-  margin: auto
+  margin: auto;
 }
 
 .btn-green {
-  background-color: var(--button-primary)!important;
+  background-color: var(--button-primary) !important;
   color: white;
   font-weight: 500;
 }
 
 .btn-contrast {
-  background-color: var(--button-contrast)!important;
+  background-color: var(--button-contrast) !important;
   color: white;
   font-weight: 500;
 }
@@ -90,9 +90,9 @@ p {
 .tomm_nav {
   height: min(12vh, 200px);
   z-index: 100;
-  top: 0; 
-  left: 0!important;
-  right: 0!important;
+  top: 0;
+  left: 0 !important;
+  right: 0 !important;
   background-color: rgba(255, 255, 255, 0.8);
   position: fixed;
 }
@@ -137,95 +137,11 @@ p {
 .filter-bar .content {
   border-top-right-radius: var(--border-sm);
   border-bottom-right-radius: var(--border-sm);
-  background-color: white!important;
+  background-color: white !important;
   font-size: 1rem;
   border-width: 1px;
   height: 2.5rem;
   padding: 0.5rem;
   border-color: rgba(0, 0, 0, 0.3);
   width: 70%;
-}
-
-.tutor-item {
-  height: fit-content;
-  padding: 1rem 1.5rem;
-  background-color: white;
-  box-shadow: var(--shadow-md);
-  display: flex;
-  flex-flow: row nowrap;
-  border-radius: 1rem;
-}
-
-.tutor-teach {
-  display: flex; 
-  flex-direction: column;
-  margin-left: 1.5rem; 
-  min-width: fit-content;
-}
-
-.highlight-lg {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: black;
-}
-
-.highlight-md {
-  font-size: 1rem;
-  font-weight: 500;
-  color: rgba(0, 0, 0, 0.5  );
-}
-
-.small-collection {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.small-collection .item {
-  padding: 0.4rem;
-  font-size: 0.9rem;
-  width: fit-content;
-  min-width: 3rem;
-  text-align: center;
-  margin-right: 0.2rem;
-  border-radius: 0.3rem;
-}
-
-.small-collection.orange .item {
-  background-color: #FFE5A5;
-  border: 1px solid #F97B06;
-  color: #F97B06;
-}
-
-.small-collection.blue .item {
-  background-color: #CFF3EF;
-  border: 1px solid #00A77F;
-  color: #00A77F ;
-}
-
-.tutor-teach .pricing {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.pricing .item {
-  margin-right: 1rem;
-}
-
-.pricing .item .title {
-  margin-bottom: 0.2rem;
-}
-
-.pricing .item .content {
-  font-weight: 500;
-  color: black;
-}
-
-.tutor-teach .content {
-  font-weight: 500;
-  color: black;
-}
-
-.tutor-intro {
-  display: flex;
-  flex-flow: column wrap;
 }
