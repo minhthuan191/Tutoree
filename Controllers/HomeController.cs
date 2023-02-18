@@ -8,7 +8,6 @@ using Tutoree.Utils.Common;
 namespace Tutoree.Controllers
 {
     [Route("")]
-    [ServiceFilter(typeof(AuthGuard))]
     public class HomeController : Controller
     {
 
