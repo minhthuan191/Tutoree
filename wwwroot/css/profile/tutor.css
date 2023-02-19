@@ -1,11 +1,11 @@
-.tutor-details {
-  margin-top: min(12vh, 200px);
+.tutor-details, .my-students {
+  margin-top: min(13vh, 200px);
 }
 .tutor-info-box {
   width: 100%;
   background-color: #fff;
   height: fit-content;
-  box-shadow: 0px 5px 11px 3px #00000026;
+  box-shadow: var(--shadow-md);
   border-radius: 16px;
 
   display: flex;
@@ -93,6 +93,89 @@
 .day-box + .available {
   background-color: #00a77f;
   color: #fff;
+}
+
+.tutor-item {
+  height: fit-content;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-flow: row nowrap;
+  border-radius: 1rem;
+}
+
+.tutor-teach {
+  display: flex;
+  flex-direction: column;
+  min-width: fit-content;
+}
+
+.highlight-lg {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: black;
+}
+
+.highlight-md {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.small-collection {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.small-collection .item {
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  width: fit-content;
+  min-width: 3rem;
+  text-align: center;
+  margin-right: 0.2rem;
+  border-radius: 0.3rem;
+}
+
+.small-collection.orange .item {
+  background-color: #ffe5a5;
+  border: 1px solid #f97b06;
+  color: #f97b06;
+}
+
+.small-collection.blue .item {
+  background-color: #cff3ef;
+  border: 1px solid #00a77f;
+  color: #00a77f;
+}
+
+.tutor-teach .pricing {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.pricing .item {
+  margin-right: 1rem;
+}
+
+.pricing .item .title {
+  margin-bottom: 0.2rem;
+}
+
+.pricing .item .content {
+  font-weight: 500;
+  color: black;
+}
+
+.tutor-teach .content {
+  font-weight: 500;
+  color: black;
+}
+
+.tutor-intro {
+  display: flex;
+  flex-flow: column wrap;
 }
 
 @media (max-width: 576px) {

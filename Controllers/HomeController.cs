@@ -86,5 +86,11 @@ namespace Tutoree.Controllers
             this.ViewData["role"] = AuthController.Role;
             return View(Routers.Home.Page);
         }
+        
+        [HttpGet("/students")]
+        public IActionResult StudentsPage()
+        {
+            return View(Routers.Students.Page);
+        }
     }
 }

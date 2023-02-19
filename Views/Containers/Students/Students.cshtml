@@ -1,0 +1,71 @@
+@using Tutoree.Utils.Common @{ this.ViewData["Title"] = Routers.Students.Title;
+}
+
+<div class="my-students">
+  <section class="container-fluid px-0">
+    <div class="student-item">
+        <div class="col-md-8 content">
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-10 blurb mb-md-0 pr-md-0">
+                        <!-- OVERVIEW -->
+
+                        <div class="d-flex mr-1 flex-row flex-wrap tutor-info-box">
+                            <!-- STUDENT IDENTITY -->
+                            <div
+                                class="student-id mb-2"
+                                style="
+                                width: fit-content;
+                                margin-right: 2rem;
+                                "
+                            >
+                                <img
+                                class="avatar"
+                                style="width: 5rem"
+                                src="/images/common/AvatarDefault.png"
+                                />
+                                <h5 class="mt-4">Tăng Tấn Tài</h5>
+                                <p class="student-uni mt-1">Đại học FPT - Hồ Chí Minh</h5>
+                            </div>
+
+                            <!-- STUDENT INFORMATION -->
+                            <div class="student-info mb-2 align-self-stretch d-flex flex-column justify-content-between">
+                                <div class="student-info-item">
+                                    <p class="highlight-lg">Số điện thoại</p>
+                                    <p class="content">0795895995</p>
+                                </div>
+
+                            <div class="student-info-item">
+                                    <p class="highlight-lg">Địa chỉ</p>
+                                    <p class="content">Phường 11, quận Gò Vấp</p>
+                                </div>
+                            </div>
+
+                            <!-- SUBJECT REGISTED -->
+                            <div class="student-info  mb-2 align-self-stretch d-flex flex-column ">
+                                <h5 class="highlight-lg">Đăng kí học</h5>
+                                <div class="small-collection blue">
+                                    <p class="item">Toán</p>
+                                    <p class="item">Mac-lenin</p>
+                                    <p class="item">PRJ</p>
+                                </div> 
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-10 col-lg-10 blurb mb-md-0">
+                    <div class="row justify-content-end">
+                        <a class="btn btn-green text-white">Chấp nhận</a>
+                        <a class="btn btn-grey text-white ml-3">Từ chối</a>
+                    </div>
+                </div>
+            </div>     
+        </div>
+        
+                           
+        
+    </div>
+
+
+  </section>
+</div>
