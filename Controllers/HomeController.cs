@@ -27,52 +27,66 @@ namespace Tutoree.Controllers
         [HttpGet("")]
         public IActionResult Index()
         {
-            var student = (Student)this.ViewData["student"];
-            var tutor = (Tutor)this.ViewData["tutor"];
-            if (student != null)
-            {
-                return Redirect(Routers.Home.Link);
-               
-            }
-            if (tutor != null)
-            {
-                return Redirect(Routers.Home.Link);
-            }
+            //var student = (Student)this.ViewData["student"];
+            //var tutor = (Tutor)this.ViewData["tutor"];
+            //if (student != null)
+            //{
+            //    return Redirect(Routers.Home.Link);
 
-            var locations = this.LocationService.GetListLocation();
-            var allCategory = new SelectListItem()
-            {
-                Value = "",
-                Text = "All"
-            };
+            //}
+            //if (tutor != null)
+            //{
+            //    return Redirect(Routers.Home.Link);
+            //}
 
-            locations.Add(allCategory);
-            this.ViewData["locations"] = new SelectList(locations);
+            //var locations = this.LocationService.GetListLocation();
+            //var allCategory = new SelectListItem()
+            //{
+            //    Value = "",
+            //    Text = "All"
+            //};
 
-            var majors = this.MajorService.GetListMajor();
-            var allMajor = new SelectListItem()
-            {
-                Value = "",
-                Text = "All"
-            };
+            //locations.Add(allCategory);
+            //this.ViewData["locations"] = new SelectList(locations);
 
-            majors.Add(allMajor);
-            this.ViewData["majors"] = new SelectList(majors);
-            return View(Routers.Login.Page);
-        }
+            //var majors = this.MajorService.GetListMajor();
+            //var allMajor = new SelectListItem()
+            //{
+            //    Value = "",
+            //    Text = "All"
+            //};
 
-        [HttpGet("/home")]
-        public IActionResult HomePage()
-        {
+            //majors.Add(allMajor);
+            //this.ViewData["majors"] = new SelectList(majors);
+            this.ViewData["logedIn"] = AuthController.LogedIn;
             return View(Routers.Home.Page);
         }
 
         [HttpGet("/tutor")]
         public IActionResult TutorDetailsPage()
         {
+            this.ViewData["logedIn"] = AuthController.LogedIn;
             return View(Routers.TutorDetails.Page);
         }
 
+        [HttpGet("/home/stu")]
+        public IActionResult Student()
+        {
+            AuthController.Role = "student";
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            this.ViewData["role"] = AuthController.Role; 
+            return View(Routers.Home.Page);
+        }
+
+        [HttpGet("/home/tut")]
+        public IActionResult Tutor()
+        {
+            AuthController.Role = "tutor";
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            this.ViewData["role"] = AuthController.Role;
+            return View(Routers.Home.Page);
+        }
+        
         [HttpGet("/students")]
         public IActionResult StudentsPage()
         {

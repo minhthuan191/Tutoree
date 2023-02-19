@@ -11,6 +11,10 @@ namespace Tutoree.Controllers
     [Route("/auth")]
     public class AuthController : Controller
     {
+        public static Boolean LogedIn = false;
+
+        public static string Role = "Guest";
+
         private readonly IAuthService AuthService;
 
         public AuthController(IAuthService authService)
@@ -26,6 +30,7 @@ namespace Tutoree.Controllers
             {
                 return Redirect(Routers.Home.Link);
             }
+            AuthController.LogedIn = true;
             return View(Routers.Login.Page);
         }
 
