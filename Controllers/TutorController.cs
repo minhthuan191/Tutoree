@@ -21,11 +21,20 @@ namespace Tutoree.Controllers
             this.TutorService = TutorService;
         }
 
-        [HttpGet("detail")]
+        [HttpGet("profile")]
         public IActionResult ViewDetail()
         {
+            this.ViewData["role"] = AuthController.Role;
             this.ViewData["logedIn"] = AuthController.LogedIn;
             return View(Routers.TutorDetails.Page);
+        }
+
+        [HttpGet("students")]
+        public IActionResult StudentsPage()
+        {
+            this.ViewData["role"] = AuthController.Role;
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            return View(Routers.Students.Page);
         }
     }
 }

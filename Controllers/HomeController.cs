@@ -73,6 +73,7 @@ namespace Tutoree.Controllers
         public IActionResult Student()
         {
             AuthController.Role = "student";
+            AuthController.LogedIn = true;
             this.ViewData["logedIn"] = AuthController.LogedIn;
             this.ViewData["role"] = AuthController.Role; 
             return View(Routers.Home.Page);
@@ -82,15 +83,11 @@ namespace Tutoree.Controllers
         public IActionResult Tutor()
         {
             AuthController.Role = "tutor";
+            AuthController.LogedIn = true;
             this.ViewData["logedIn"] = AuthController.LogedIn;
             this.ViewData["role"] = AuthController.Role;
             return View(Routers.Home.Page);
         }
         
-        [HttpGet("/students")]
-        public IActionResult StudentsPage()
-        {
-            return View(Routers.Students.Page);
-        }
     }
 }

@@ -16,6 +16,7 @@ namespace Tutoree.Controllers
         [HttpGet("searchtutor")]
         public IActionResult SearchTutor()
         {
+            this.ViewData["role"] = AuthController.Role; 
             this.ViewData["logedIn"] = AuthController.LogedIn;
             return View(Routers.SearchTutor.Page);
         }
