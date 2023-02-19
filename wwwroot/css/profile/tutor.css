@@ -105,6 +105,10 @@
   border-radius: 1rem;
 }
 
+.tutor-item .avatar-container {
+  border-radius: 500px;
+}
+
 .tutor-teach {
   display: flex;
   flex-direction: column;
