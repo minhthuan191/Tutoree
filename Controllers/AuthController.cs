@@ -11,6 +11,10 @@ namespace Tutoree.Controllers
     [Route("/auth")]
     public class AuthController : Controller
     {
+        public static Boolean LogedIn = false;
+
+        public static string Role = "Guest";
+
         private readonly IAuthService AuthService;
 
         public AuthController(IAuthService authService)
@@ -26,6 +30,7 @@ namespace Tutoree.Controllers
             {
                 return Redirect(Routers.Home.Link);
             }
+            AuthController.LogedIn = true;
             return View(Routers.Login.Page);
         }
 
@@ -67,15 +72,20 @@ namespace Tutoree.Controllers
         public IActionResult Logout()
         {
 
-            this.HttpContext.Response.Cookies.Append("auth-token", "", new CookieOptions()
-            {
-                Expires = DateTime.Now.AddDays(-1),
-                SameSite = SameSiteMode.None,
-                Secure = true
+            // this.HttpContext.Response.Cookies.Append("auth-token", "", new CookieOptions()
+            // {
+            //     Expires = DateTime.Now.AddDays(-1),
+            //     SameSite = SameSiteMode.None,
+            //     Secure = true
 
-            });
-            this.HttpContext.Session.Clear();
-            return Redirect(Routers.Login.Link + "?message=logout success");
+            // });
+            // this.HttpContext.Session.Clear();
+            // return Redirect(Routers.Login.Link + "?message=logout success");
+            AuthController.Role = null;
+            AuthController.LogedIn = false;
+            this.ViewData["role"] = AuthController.Role;
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            return View(Routers.Login.Page);
         }
 
 

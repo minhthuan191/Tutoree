@@ -1,0 +1,24 @@
+﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using Tutoree.Controllers.DTO;
+using Tutoree.Models;
+using Tutoree.Service.Interface;
+using Tutoree.Utils.Common;
+
+
+namespace Tutoree.Controllers
+{
+    [Route("/student")]
+    public class StudentController : Controller
+    {
+        [HttpGet("searchtutor")]
+        public IActionResult SearchTutor()
+        {
+            this.ViewData["role"] = AuthController.Role; 
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            return View(Routers.SearchTutor.Page);
+        }
+    }
+}

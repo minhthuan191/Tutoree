@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Tutoree.Auth;
 using Tutoree.Models;
 using Tutoree.Service.Interface;
 using Tutoree.Utils.Common;
@@ -7,7 +8,6 @@ using Tutoree.Utils.Common;
 namespace Tutoree.Controllers
 {
     [Route("")]
-
     public class HomeController : Controller
     {
 
@@ -29,17 +29,11 @@ namespace Tutoree.Controllers
         [HttpGet("")]
         public IActionResult Index(double max, string subjectId, string locationId, string message, string errorMessage, int pageIndex = 0, int pageSize = 12)
         {
-            var student = (Student)this.ViewData["student"];
-            var tutor = (Tutor)this.ViewData["tutor"];
-            if (student != null)
-            {
-                return Redirect(Routers.Home.Link);
-               
-            }
-            if (tutor != null)
-            {
-                return Redirect(Routers.Home.Link);
-            }
+            //var student = (Student)this.ViewData["student"];
+            //var tutor = (Tutor)this.ViewData["tutor"];
+            //if (student != null)
+            //{
+            //    return Redirect(Routers.Home.Link);
 
             var locations = this.LocationService.GetListLocation();
             var allLocation = new SelectListItem()
@@ -78,9 +72,32 @@ namespace Tutoree.Controllers
             return View(Routers.Login.Page);
         }
 
-        
+        [HttpGet("/tutor")]
+        public IActionResult TutorDetailsPage()
+        {
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            return View(Routers.TutorDetails.Page);
+        }
 
-        
+        [HttpGet("/home/stu")]
+        public IActionResult Student()
+        {
+            AuthController.Role = "student";
+            AuthController.LogedIn = true;
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            this.ViewData["role"] = AuthController.Role; 
+            return View(Routers.Home.Page);
+        }
 
+        [HttpGet("/home/tut")]
+        public IActionResult Tutor()
+        {
+            AuthController.Role = "tutor";
+            AuthController.LogedIn = true;
+            this.ViewData["logedIn"] = AuthController.LogedIn;
+            this.ViewData["role"] = AuthController.Role;
+            return View(Routers.Home.Page);
+        }
+        
     }
 }

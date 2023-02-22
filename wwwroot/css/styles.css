@@ -1,5 +1,6 @@
 @import "home/home.css";
 @import "login/login.css";
+@import "profile/tutor.css";
 
 *,
 ::before,
@@ -31,4 +32,122 @@ body {
 hr {
   height: 0; /* 1 */
   color: inherit; /* 2 */
+}
+
+p {
+  margin-bottom: 0.1rem;
+}
+
+.bg {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  object-fit: fill;
+}
+
+.bg-decor {
+  position: fixed;
+  width: 70vw;
+  height: 80vh;
+  top: 10vh;
+  left: 0;
+}
+
+.rounded-panel {
+  border-radius: 1rem;
+}
+
+.rounded-button {
+  border-radius: 0.3rem;
+}
+
+.avoid-nav {
+  margin-top: calc(min(5vh, 50px) + min(15vh, 200px));
+}
+
+.center {
+  margin: auto;
+}
+
+.btn-grey {
+  background-color: #B1AFAE !important;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+}
+
+.btn-green {
+  background-color: var(--button-primary) !important;
+  color: white;
+  font-weight: 500;
+}
+
+.btn-contrast {
+  background-color: var(--button-contrast) !important;
+  color: white;
+  font-weight: 500;
+}
+
+.bold {
+  font-weight: 500;
+}
+
+.tomm_nav {
+  height: min(12vh, 200px);
+  z-index: 100;
+  top: 0;
+  left: 0 !important;
+  right: 0 !important;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: fixed;
+}
+
+.tomm_nav .nav-item {
+  font-weight: 500;
+  margin-left: 2rem;
+}
+
+.ham-button {
+  height: 2rem;
+}
+
+.logo {
+  width: max(5vw, 5rem);
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.filter-bar .form-group {
+  width: 15rem;
+  border-radius: 0.3rem;
+}
+
+.filter-bar .title {
+  border-top-left-radius: var(--border-sm);
+  border-bottom-left-radius: var(--border-sm);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
+  padding: 0.5rem;
+  height: 2.5rem;
+  width: 30%;
+  font-weight: 500;
+  color: black;
+  border-right: none;
+}
+
+.filter-bar .content {
+  border-top-right-radius: var(--border-sm);
+  border-bottom-right-radius: var(--border-sm);
+  background-color: white !important;
+  font-size: 1rem;
+  border-width: 1px;
+  height: 2.5rem;
+  padding: 0.5rem;
+  border-color: rgba(0, 0, 0, 0.3);
+  width: 70%;
 }

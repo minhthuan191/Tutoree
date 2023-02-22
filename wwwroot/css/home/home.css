@@ -1,4 +1,9 @@
 @import "divider.css";
+@import "bubble.css";
+
+.hidden {
+  display: none;
+}
 
 .home-page {
   display: flex;
@@ -7,12 +12,13 @@
 
 .section-heading {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2rem !important;
   margin-bottom: 1.5em;
 }
 
 .introduction-section {
   position: relative;
+  margin-top: min(13vh, 200px);
 }
 
 .introduction-home-decor {
@@ -35,30 +41,57 @@
   box-shadow: 0px 4px 100px 0px #0000004d;
 }
 
-.introduction-row {
+.home-page-row {
   width: 100%;
   margin-bottom: 5vh;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-.introduction-row:first-child {
+.home-page-row:first-child {
   margin-top: 2vh;
 }
 
 .paragraph-title {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   font-weight: 600;
 }
 
 .paragraph {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 400;
 }
 
-@media (max-width: 767px) {
+.footer-home {
+  width: 100%;
+  background: linear-gradient(107.05deg, #d6fbd7 -2.98%, #5090ca 92.45%);
+  height: 180px;
+}
+
+@media (max-width: 480px) {
+  .section-heading {
+    font-size: 1.5rem !important;
+  }
+
+  .footer-home {
+    height: 100px;
+  }
+}
+
+@media ((max-width: 767px) and (min-width: 481px)) {
   .introduction-home-decor {
     top: 40%;
   }
-  .introduction-row {
+
+  .home-page-row {
     margin-bottom: 0px;
+  }
+
+  .section-heading {
+    font-size: 1.75rem !important;
+  }
+
+  .footer-home {
+    height: 150px;
   }
 }
