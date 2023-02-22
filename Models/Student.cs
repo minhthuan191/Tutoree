@@ -35,7 +35,6 @@ namespace Tutoree.Models
         public string Semester{ set; get; }
 
         [Required]
-        [StringLength(50)]
         [ForeignKey("tblLocation")]
 
         public string LocationId { set; get; }

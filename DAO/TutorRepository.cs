@@ -59,7 +59,20 @@ namespace Tutoree.DAO
             return listTutor;
         }
 
-        
+        public (List<Tutor>, int) GetAllTutors(int pageIndex, int pageSize, string subjectId, string locationId)
+        {
+            List<Tutor> tutors = new List<Tutor>();
+            List<TeachingSubject> teachingSubject = this.DBContext.TeachingSubject.Where(x => x.SubjectId.Contains(subjectId)).ToList();
+                foreach (TeachingSubject item in teachingSubject)
+                {
+                    Tutor tutor = this.DBContext.Tutor.FirstOrDefault(x => x.TutorId == item.TutorId && x.LocationId.Contains(locationId));
+                    tutors.Add(tutor);
+                }
+            
+            var pagelist = (List<Tutor>)tutors.Take((pageIndex + 1) * pageSize).Skip(pageIndex * pageSize).ToList();
+            return (pagelist, tutors.Count);
+        }
+
 
     }
 }

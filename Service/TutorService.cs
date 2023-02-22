@@ -9,9 +9,9 @@ namespace Tutoree.Service
     public class TutorService : ITutorService
     {
         private readonly ITutorRepository TutorRepository;
-        public TutorService(ITutorRepository TutorRepository)
+        public TutorService(ITutorRepository tutorRepository)
         {
-            TutorRepository = TutorRepository;
+            this.TutorRepository = tutorRepository;
         }
 
 
@@ -57,5 +57,9 @@ namespace Tutoree.Service
             return this.TutorRepository.UpdateTutorInfoHandler(Tutor);
         }
 
+        public (List<Tutor>, int) GetAllTutors(int pageIndex, int pageSize, string subjectId, string locationId)
+        {
+            return this.TutorRepository.GetAllTutors(pageIndex, pageSize, subjectId, locationId);
+        }
     }
 }

@@ -17,7 +17,7 @@ namespace Tutoree.Models
 
 
         [Required]
-        [StringLength(50)]
+        [StringLength(500)]
         public string Description { set; get; }
 
         [StringLength(50)]
