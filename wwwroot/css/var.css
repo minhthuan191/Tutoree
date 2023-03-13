@@ -1,12 +1,12 @@
 :root {
-  --color-0: #26c975;
-  --button-primary: #00a77f;
-  --button-secondary: black;
-  --button-contrast: #ff9029;
+    --color-0: #26c975;
+    --button-primary: #00a77f;
+    --button-secondary: black;
+    --button-contrast: #ff9029;
 
-  --border-sm: 0.5rem;
-  --border-md: 1rem;
-  --border-lg: 1.5rem;
+    --border-sm: 0.5rem;
+    --border-md: 1rem;
+    --border-lg: 1.5rem;
 
-  --shadow-md: 0 3px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 3px 5px rgba(0, 0, 0, 0.1);
 }

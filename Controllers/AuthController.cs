@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using Tutoree.Models;
+using Tutoree.Service;
 using Tutoree.Service.Interface;
 using Tutoree.Utils.Common;
 
@@ -17,9 +18,18 @@ namespace Tutoree.Controllers
 
         private readonly IAuthService AuthService;
 
-        public AuthController(IAuthService authService)
+        private readonly ILocationService LocationService;
+
+        private readonly EffortlessService EffortlessService;
+
+        private readonly IMajorService MajorService;
+        
+        public AuthController(IAuthService authService, ILocationService locationService, EffortlessService effortlessService, IMajorService majorService)
         {
-            this.AuthService = authService;
+            AuthService = authService;
+            LocationService = locationService;
+            EffortlessService = effortlessService;
+            MajorService = majorService;
         }
 
         [HttpGet("login")]
@@ -49,11 +59,15 @@ namespace Tutoree.Controllers
         [HttpGet("register")]
         public IActionResult Register()
         {
-            var user = (Student)this.ViewData["student"];
+            var user = (Student) ViewData["student"];
             if (user != null)
             {
                 return Redirect(Routers.Home.Link);
             }
+
+            ViewBag.LocationList = this.LocationService.GetAllLocations();
+            ViewBag.SchoolYearList = this.EffortlessService.GetAllSchoolYear();
+            ViewBag.MajorList = this.MajorService.GetAllMajors();
             return View(Routers.Register.Page);
         }
 

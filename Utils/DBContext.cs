@@ -16,23 +16,25 @@ namespace Tutoree.Utils
 
         public DbSet<Student> Student { set; get; }
         public DbSet<Tutor> Tutor { set; get; }
+        
         public DbSet<Tutor_Student> Tutor_Student { set; get; }
         public DbSet<Subject> Subject { set; get; }
         public DbSet<Major> Major { set; get; }
         public DbSet<Location> Location { set; get; }
         public DbSet<TeachingSubject> TeachingSubject { set; get; }
+        
         public DbSet<TeachingSchedule> TeachingSchedule { set; get; }
-
-
+    
+        public DbSet<SchoolYear> SchoolYear { set; get; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=13.212.125.242,1433;Initial Catalog=Tutoree;User ID=sa;Password=1234567890Aa;MultipleActiveResultSets=true;Integrated Security=false;TrustServerCertificate=true");
+            optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=Tutoree;User ID=SA;Password=AgileScrumXP21*;MultipleActiveResultSets=true;");
         }
 
 
-        public static async Task<Boolean> InitDatabase(IConfig config)
+        public static async Task InitDatabase(IConfig config)
         {
             var dbContext = new DBContext(config);
             bool result = await dbContext.Database.EnsureCreatedAsync();
@@ -40,8 +42,6 @@ namespace Tutoree.Utils
             {
                 Console.WriteLine("Database created");
             }
-
-            return true;
         }
     }
 }

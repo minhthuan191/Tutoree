@@ -1,24 +1,24 @@
 .bg {
-	position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  object-fit: fill;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    object-fit: fill;
 }
 
 .bg-decor {
-  position: fixed;
-  width: 70vw;
-  height: 80vh;
-  top: 10vh;
-  left: 0;
+    position: fixed;
+    width: 70vw;
+    height: 80vh;
+    top: 10vh;
+    left: 0;
 }
 
 .rounded-panel {
-  border-radius: 1rem;
+    border-radius: 1rem;
 }
 
 .rounded-button {
-  border-radius: 0.3rem;
+    border-radius: 0.3rem;
 }

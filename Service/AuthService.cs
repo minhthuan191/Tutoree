@@ -1,4 +1,5 @@
-﻿using Tutoree.Models;
+﻿using System;
+using Tutoree.Models;
 using Tutoree.Service.Interface;
 using Tutoree.Utils;
 using Tutoree.Utils.Interface;
@@ -7,32 +8,31 @@ namespace Tutoree.Service
 {
     public class AuthService : IAuthService
     {
-        private readonly DBContext DBContext;
-        private readonly IStudentService StudentService;
         private readonly IJwtService JWTService;
-        public AuthService(DBContext dBContext, IStudentService StudentService, IJwtService jwtService)
+        private readonly IStudentService StudentService;
+        private readonly EffortlessService EffortlessService;
+
+        public AuthService(IStudentService StudentService, IJwtService jwtService, EffortlessService effortlessService)
         {
-            this.DBContext = dBContext;
             this.StudentService = StudentService;
-            this.JWTService = jwtService;
+            JWTService = jwtService;
+            EffortlessService = effortlessService;
         }
 
         public bool RegisterStudentHandler(Student Student)
-        {
-            return this.StudentService.RegisterHandler(Student);
+        {   
+            return StudentService.RegisterHandler(Student);
         }
-
 
         public string LoginHandler(string StudentId)
         {
-            string token = this.JWTService.GenerateToken(StudentId);
+            var token = JWTService.GenerateToken(StudentId);
             return token;
         }
 
         public string HashingPassword(string password)
-
         {
-            return BCrypt.Net.BCrypt.HashPassword(password, workFactor: 8);
+            return BCrypt.Net.BCrypt.HashPassword(password, 8);
         }
 
         public bool ComparePassword(string inputPassword, string encryptedPassword)
@@ -42,7 +42,7 @@ namespace Tutoree.Service
 
         public bool RegisterTutorHandler(Tutor tutor)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

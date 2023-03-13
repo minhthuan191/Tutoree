@@ -1,6 +1,7 @@
 ﻿@using Tutoree.Utils.Common
+@using Tutoree.Models
 @{
-    this.ViewData["Title"] = Routers.Register.Title;
+    ViewData["Title"] = Routers.Register.Title;
 }
 
 <div class="w-100">
@@ -23,11 +24,15 @@
         
         <form class="mt-4" style="margin-bottom: 30vh">
             <div class="form-group">
-              <label for="exampleInputEmail1">Địa chỉ email</label>
-              <input readonly type="email" class="form-control bg-white" value="taittse150194@fpt.edu.vn">
-              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                <label for="exampleInputEmail1">Địa chỉ email</label>
+                <input required type="email" class="form-control bg-white">
             </div>
-
+            
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            
             <div class="form-group">
               <label for="exampleInputPassword1">Họ và tên</label>
               <input type="text" class="form-control">
@@ -41,50 +46,30 @@
             <div class="form-group">
                 <label for="exampleInputPassword1">Cơ sở giáo dục</label>
                 <select class="form-control">
-                    <option>Đại học FPT</option>
-                    <option>Greenwich Việt Nam</option>
-                    <option>Swinburne Việt Nam</option>
-                    <option>Cao đẳng Thực hành FPT</option>
-                    <option>Viện đào tạo quốc tế FPT</option>
-                    <option>Viện quản trị và công nghệ FSB</option>
-                    <option>Hệ thống phổ thông FPT</option>
-                    <option>Phổ thông Cao đẳng FPT</option>
+                    @foreach (Location location in ViewBag.LocationList)
+                    {
+                        <option>@location.LocationName</option>
+                    }
                 </select>    
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Khóa</label>
                 <select class="form-control">
-                    <option>K1</option>
-                    <option>K2</option>
-                    <option>K3</option>
-                    <option>K4</option>
-                    <option>K5</option>
-                    <option>K6</option>
-                    <option>K7</option>
-                    <option>K8</option>
-                    <option>K9</option>
-                    <option>K10</option>
-                    <option>K11</option>
-                    <option>K12</option>
-                    <option>K13</option>
-                    <option>K14</option>
-                    <option>K15</option>
-                    <option>K16</option>
-                    <option>K17</option>
-                    <option>K18</option>
-                    <option>K19</option>
+                    @foreach (SchoolYear schoolYear in ViewBag.SchoolYearList)
+                    {
+                        <option>@schoolYear.SchoolYearName</option>
+                    }
                 </select>    
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Ngành</label>
                 <select class="form-control">
-                    <option>Software Engineer</option>
-                    <option>Graphic Design</option>
-                    <option>Artificial Intelligent</option>
-                    <option>International Business</option>
-                    <option>English Specialist</option>
+                    @foreach (Major major in ViewBag.MajorList)
+                    {
+                        <option>@major.MajorName</option>
+                    }
                 </select>    
             </div>
 

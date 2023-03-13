@@ -1,170 +1,167 @@
-@using Tutoree.Utils.Common @{ this.ViewData["Title"] =
-Routers.TutorDetails.Title; }
+@using Tutoree.Utils.Common
+@{ this.ViewData["Title"] =
+       Routers.TutorDetails.Title; }
 
 <div class="tutor-details avoid-nav">
-  <section class="container-fluid px-0">
-    <div class="tutor-details-row row content">
-      <div class="col-md-6">
-        <div class="row justify-content-md-end justify-content-center">
-          <div class="col-10 col-lg-10 blurb mb-md-0">
-            <!-- OVERVIEW -->
+    <section class="container-fluid px-0">
+        <div class="tutor-details-row row content">
+            <div class="col-md-6">
+                <div class="row justify-content-md-end justify-content-center">
+                    <div class="col-10 col-lg-10 blurb mb-md-0">
+                        <!-- OVERVIEW -->
 
-            <div class="d-flex flex-row flex-wrap tutor-info-box">
-              <!-- TUTOR IDENTITY -->
-              <div
-                class="tutor-id text-center"
-                style="
+                        <div class="d-flex flex-row flex-wrap tutor-info-box">
+                            <!-- TUTOR IDENTITY -->
+                            <div
+                                class="tutor-id text-center"
+                                style="
                   width: fit-content;
                   margin-right: 1.5rem;
                   margin-bottom: 1rem;
-                "
-              >
-                <img class="avatar"
-                style="width: 6rem; border-radius: 10rem;" 
-                src="/images/common/AvatarThuan.png"/>
-                <h5 class="tutor-name mt-4">Trần Minh Thuận</h5>
-                <button onClick='alert("Đã thông báo về việc đăng kí học của bạn đến gia sư, vui lòng chờ liên lạc từ phía gia sư! ^^")' class="btn btn-green text-white mt-3">Đăng kí học</button>
-              </div>
+                ">
+                                <img class="avatar"
+                                     style="width: 6rem; border-radius: 10rem;"
+                                     src="/images/common/AvatarThuan.png"/>
+                                <h5 class="tutor-name mt-4">Trần Minh Thuận</h5>
+                                <button onClick='alert("Đã thông báo về việc đăng kí học của bạn đến gia sư, vui lòng chờ liên lạc từ phía gia sư! ^^")' class="btn btn-green text-white mt-3">Đăng kí học</button>
+                            </div>
 
-              <!-- TUTOR TEACHING INFORMATION -->
-              <div class="tutor-teach">
-                <p class="highlight-lg">K15</p>
-                <p class="content">Đại học FPT - TP.HCM</p>
-                <p class="highlight-md mb-1 mt-3">Môn dạy</p>
-                <div class="small-collection blue">
-                  <p class="item">PRN</p>
-                  <p class="item">SWD</p>
-                  <p class="item">PRJ</p>
+                            <!-- TUTOR TEACHING INFORMATION -->
+                            <div class="tutor-teach">
+                                <p class="highlight-lg">K15</p>
+                                <p class="content">Đại học FPT - TP.HCM</p>
+                                <p class="highlight-md mb-1 mt-3">Môn dạy</p>
+                                <div class="small-collection blue">
+                                    <p class="item">PRN</p>
+                                    <p class="item">SWD</p>
+                                    <p class="item">PRJ</p>
+                                </div>
+
+                                <p class="highlight-md mb-1 mt-3">Nơi dạy</p>
+                                <div class="small-collection orange">
+                                    <p class="item">Nhà riêng</p>
+                                    <p class="item">Thư viện</p>
+                                    <p class="item">Online</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INTRODUCTION -->
+                        <div class="tutor-introduction tutor-info-box">
+                            <h2 class="header">GIỚI THIỆU BẢN THÂN</h2>
+                            <div class="content">
+                                <p class="gender">Giới tính - Nam</p>
+                                <p class="phone">Số điện thoại - 0934445832</p>
+                                <p class="address">Địa chỉ - Thủ Đức, TP. Hồ Chí Minh</p>
+                                <div class="seperator"></div>
+                                <p class="bio">
+                                    Từng là học sinh trường Tư thục Nguyễn Khuyến cơ sở 1 Điểm thi
+                                    THPT khối A00: 27.4
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- ACADEMIC BACKGROUND -->
+                        <div class="tutor-academic-bg tutor-info-box">
+                            <h2 class="header">HỌC VẤN</h2>
+                            <div class="content">
+                                <p class="university">
+                                    ĐẠI HỌC NĂM 2 - TRƯỜNG ĐH CÔNG NGHỆ THÔNG TIN, ĐHQG TPHCM
+                                </p>
+                                <p class="major">Chuyên ngành Khoa Học Máy Tính</p>
+                            </div>
+                        </div>
+
+                        <!-- VERIFIED PROFILE -->
+                        <div class="verified-profile tutor-info-box">
+                            <h2 class="header">HỒ SƠ ĐÃ XÁC THỰC</h2>
+                            <div class="content">
+                                <ul class="list-group w-100 mx-auto">
+                                    <div class="list-group-item">
+                                        <img src="images/students/TickSquare.svg"/>
+                                        Đã xác thực thông tin hồ sơ: Thông tin cá nhân, học vấn,
+                                        bằng cấp.
+                                    </div>
+                                    <div class="list-group-item">
+                                        <img src="images/students/TickSquare.svg"/>
+                                        Đã phỏng vấn
+                                    </div>
+                                    <div class="list-group-item">
+                                        <img src="images/students/TickSquare.svg"/>
+                                        Đã đào tạo quy trình dạy
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <p class="highlight-md mb-1 mt-3">Nơi dạy</p>
-                <div class="small-collection orange">
-                  <p class="item">Nhà riêng</p>
-                  <p class="item">Thư viện</p>
-                  <p class="item">Online</p>
-                </div>
-              </div>
             </div>
+            <div class="col-md-6">
+                <div class="row justify-content-md-start justify-content-center">
+                    <div class="col-10 col-lg-10 blurb mb-md-0">
+                        <!-- TUITION FEE -->
+                        <div class="tuition-fee tutor-info-box">
+                            <h2 class="header">HỌC PHÍ</h2>
+                            <div
+                                class="content d-flex flex-md-row flex-column justify-content-between w-100">
+                                <div class="offline-fee flex-column">
+                                    <p>Học phí offline</p>
+                                    <p class="fee-info">150.000 VNĐ/buổi</p>
+                                </div>
+                                <div class="online-fee flex-column">
+                                    <p>Học phí Online</p>
+                                    <p class="fee-info">150.000 VNĐ/buổi</p>
+                                </div>
+                            </div>
+                        </div>
 
-            <!-- INTRODUCTION -->
-            <div class="tutor-introduction tutor-info-box">
-              <h2 class="header">GIỚI THIỆU BẢN THÂN</h2>
-              <div class="content">
-                <p class="gender">Giới tính - Nam</p>
-                <p class="phone">Số điện thoại - 0934445832</p>
-                <p class="address">Địa chỉ - Thủ Đức, TP. Hồ Chí Minh</p>
-                <div class="seperator"></div>
-                <p class="bio">
-                  Từng là học sinh trường Tư thục Nguyễn Khuyến cơ sở 1 Điểm thi
-                  THPT khối A00: 27.4
-                </p>
-              </div>
-            </div>
-
-            <!-- ACADEMIC BACKGROUND -->
-            <div class="tutor-academic-bg tutor-info-box">
-              <h2 class="header">HỌC VẤN</h2>
-              <div class="content">
-                <p class="university">
-                  ĐẠI HỌC NĂM 2 - TRƯỜNG ĐH CÔNG NGHỆ THÔNG TIN, ĐHQG TPHCM
-                </p>
-                <p class="major">Chuyên ngành Khoa Học Máy Tính</p>
-              </div>
-            </div>
-
-            <!-- VERIFIED PROFILE -->
-            <div class="verified-profile tutor-info-box">
-              <h2 class="header">HỒ SƠ ĐÃ XÁC THỰC</h2>
-              <div class="content">
-                <ul class="list-group w-100 mx-auto">
-                  <div class="list-group-item">
-                    <img src="images/students/TickSquare.svg" />
-                    Đã xác thực thông tin hồ sơ: Thông tin cá nhân, học vấn,
-                    bằng cấp.
-                  </div>
-                  <div class="list-group-item">
-                    <img src="images/students/TickSquare.svg" />
-                    Đã phỏng vấn
-                  </div>
-                  <div class="list-group-item">
-                    <img src="images/students/TickSquare.svg" />
-                    Đã đào tạo quy trình dạy
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="row justify-content-md-start justify-content-center">
-          <div class="col-10 col-lg-10 blurb mb-md-0">
-            <!-- TUITION FEE -->
-            <div class="tuition-fee tutor-info-box">
-              <h2 class="header">HỌC PHÍ</h2>
-              <div
-                class="content d-flex flex-md-row flex-column justify-content-between w-100"
-              >
-                <div class="offline-fee flex-column">
-                  <p>Học phí offline</p>
-                  <p class="fee-info">150.000 VNĐ/buổi</p>
-                </div>
-                <div class="online-fee flex-column">
-                  <p>Học phí Online</p>
-                  <p class="fee-info">150.000 VNĐ/buổi</p>
-                </div>
-              </div>
-            </div>
-
-            <!-- SCHEDULE -->
-            <div class="schedule tutor-info-box">
-              <div
-                class="content d-flex flex-md-row flex-column justify-content-md-between w-100"
-              >
-                <h2 class="header">LỊCH DẠY</h2>
-                <div class="schedule-notes">
-                  <ul class="list-group mx-md-auto">
-                    <div class="list-group-item">
-                      <span
-                        class="d-inline-flex align-items-center justify-content-center text-white rounded-circle m-1 me-2"
-                        style="
+                        <!-- SCHEDULE -->
+                        <div class="schedule tutor-info-box">
+                            <div
+                                class="content d-flex flex-md-row flex-column justify-content-md-between w-100">
+                                <h2 class="header">LỊCH DẠY</h2>
+                                <div class="schedule-notes">
+                                    <ul class="list-group mx-md-auto">
+                                        <div class="list-group-item">
+                                            <span
+                                                class="d-inline-flex align-items-center justify-content-center text-white rounded-circle m-1 me-2"
+                                                style="
                           background-color: #00a77f;
                           width: 12px;
                           height: 12px;
-                        "
-                      ></span>
-                      Có lịch dạy
-                    </div>
-                    <div class="list-group-item">
-                      <span
-                        class="d-inline-flex align-items-center justify-content-center text-white rounded-circle m-1 me-2"
-                        style="
+                        ">
+                                            </span>
+                                            Có lịch dạy
+                                        </div>
+                                        <div class="list-group-item">
+                                            <span
+                                                class="d-inline-flex align-items-center justify-content-center text-white rounded-circle m-1 me-2"
+                                                style="
                           background-color: #cccccc;
                           width: 12px;
                           height: 12px;
-                        "
-                      ></span>
-                      Không có lịch dạy
-                    </div>
-                  </ul>
-                </div>
-              </div>
+                        ">
+                                            </span>
+                                            Không có lịch dạy
+                                        </div>
+                                    </ul>
+                                </div>
+                            </div>
 
-              <div
-                class="d-flex flex-wrap align-content-start justify-content-xl-between w-100"
-              >
-                <div class="day-box mr-2 available">Thứ 2</div>
-                <div class="day-box mr-2 available">Thứ 3</div>
-                <div class="day-box mr-2 available">Thứ 4</div>
-                <div class="day-box mr-2">Thứ 5</div>
-                <div class="day-box mr-2">Thứ 6</div>
-                <div class="day-box mr-2">Thứ 7</div>
-                <div class="day-box available">CN</div>
-              </div>
+                            <div
+                                class="d-flex flex-wrap align-content-start justify-content-xl-between w-100">
+                                <div class="day-box mr-2 available">Thứ 2</div>
+                                <div class="day-box mr-2 available">Thứ 3</div>
+                                <div class="day-box mr-2 available">Thứ 4</div>
+                                <div class="day-box mr-2">Thứ 5</div>
+                                <div class="day-box mr-2">Thứ 6</div>
+                                <div class="day-box mr-2">Thứ 7</div>
+                                <div class="day-box available">CN</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 </div>
