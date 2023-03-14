@@ -69,7 +69,7 @@ namespace Tutoree.Controllers
             this.ViewData["tutors"] = tutors;
             this.ViewData["total"] = count;
 
-            return View(Routers.Login.Page);
+            return View(Routers.Home.Page);
         }
 
         [HttpGet("/tutor")]

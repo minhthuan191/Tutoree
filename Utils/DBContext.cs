@@ -30,7 +30,7 @@ namespace Tutoree.Utils
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=Tutoree;User ID=SA;Password=AgileScrumXP21*;MultipleActiveResultSets=true;");
+            optionsBuilder.UseSqlServer("Data Source=13.212.106.245,1433;Initial Catalog=Tutoree;User ID=sa;Password=1234567890Aa;MultipleActiveResultSets=true;Integrated Security=false;TrustServerCertificate=true");
         }
 
 

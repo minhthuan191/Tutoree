@@ -25,40 +25,21 @@
         Đăng nhập
     </h3>
 
-    <form class="">
+    <form class=""  id="loginForm">
         <div class="form-group">
             <label for="exampleInputEmail1">User name</label>
-            <input required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter username">
+            <input id="email" name="email" required type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter username">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input id="password" name="password" required type="password" class="form-control" placeholder="Password">
         </div>
-        <button type="submit" class="btn btn-primary btn-green w-100">Log in</button>
+        <div>
+        @await Html.PartialAsync("../../Components/Form/FormBtn.cshtml","Sign In")
+        </div>
     </form>
 </div>
 
 @section Scripts {
-
     <script src="/js/login.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script>
-        function continueWithNextIdp(notification) {
-            if (notification && notification.credential) {
-               const user = jwt_decode(notification.credential);
-               if (!user.email.includes(`fpt`)) {
-                    alert("Please use your FPT email to login");
-                    
-                }  else {
-                    if (user.email == "taittse150194@fpt.edu.vn") {
-                        window.location.href = `/home/stu`;
-                    } else {
-                        window.location.href = `/home/tut`;
-                    }
-                } 
-            }
-        }
-    </script>
 }

@@ -6,7 +6,6 @@ loginForm?.addEventListener("submit", function (event) {
         event.preventDefault();
         const email = document.getElementById("email");
          const password = document.getElementById("password");
-    console.log("aaaaaaaaaaaaaa");
     if (email !== null && password !== null) {
                 let input = {
                         email: email.value,
